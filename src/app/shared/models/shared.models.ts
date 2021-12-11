@@ -1,7 +1,7 @@
 export enum Category {
   Fantasy = 'Fantasy',
   Detective = 'Detective',
-  Romance = 'Romance',
+  Adventure = 'Adventure',
 }
 
 export enum Type {

@@ -1,6 +1,11 @@
 :host {
   width: 300px;
-  display: block;
+  display: flex;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
 }
 
 .types {
@@ -27,4 +32,8 @@
 
 .price {
   font-weight: bold;
+}
+
+.actions {
+  margin-top: auto;
 }

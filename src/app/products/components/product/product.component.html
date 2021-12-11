@@ -1,20 +1,20 @@
-<mat-card>
-  <mat-card-title>{{ name }}</mat-card-title>
+<mat-card class="card">
+  <mat-card-title>{{ product.name }}</mat-card-title>
   <mat-card-content>
-    <p>{{ category }}</p>
+    <p>{{ product.category }}</p>
     <ul class="types">
-      <li *ngFor="let type of types">{{ type }}</li>
+      <li *ngFor="let type of product.types">{{ type }}</li>
     </ul>
     <div class="price-wrapper">
-      <span class="price">{{ price }}$</span>
-      <span>Is available: {{ isAvailable }}</span>
+      <span class="price">{{ product.price }}$</span>
+      <span>Is available: {{ product.isAvailable }}</span>
     </div>
-    <p>{{ description }}</p>
+    <p>{{ product.description }}</p>
     <ul class="cover-types">
-      <li *ngFor="let coverType of coverTypes">{{ coverType }}</li>
+      <li *ngFor="let coverType of product.coverTypes">{{ coverType }}</li>
     </ul>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions class="actions">
     <button mat-raised-button color="primary" (click)="onAddToCart()">Buy</button>
   </mat-card-actions>
 </mat-card>
