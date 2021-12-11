@@ -1,0 +1,30 @@
+:host {
+  width: 300px;
+  display: block;
+}
+
+.types {
+  color: #e67a00;
+}
+
+.types,
+.cover-types {
+  padding-left: 0;
+  gap: 10px;
+  display: flex;
+  list-style-type: none;
+}
+
+.cover-types {
+  color: #007185;
+}
+
+.price-wrapper {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  font-weight: bold;
+}
