@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Category, CoverType, Type } from '../../shared/models/shared.models';
+import { Category, CoverType, Type } from '../../../shared/models/shared.models';
 
 @Component({
   selector: 'app-first',
