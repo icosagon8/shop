@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>{{ name }}</mat-card-title>
+  <mat-card-content>
+    <p>{{ category }}</p>
+    <ul class="types">
+      <li *ngFor="let type of types">{{ type }}</li>
+    </ul>
+    <div class="price-wrapper">
+      <span class="price">{{ price }}$</span>
+      <span>Is available: {{ isAvailable }}</span>
+    </div>
+    <p>{{ description }}</p>
+    <ul class="cover-types">
+      <li *ngFor="let coverType of coverTypes">{{ coverType }}</li>
+    </ul>
+  </mat-card-content>
+</mat-card>
