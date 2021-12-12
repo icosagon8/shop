@@ -19,7 +19,7 @@ export class CartListComponent {
     return this.products.length;
   }
 
-  trackByItems(index: number, item: ProductModel): string {
-    return item.name;
+  trackByItems(index: number, item: ProductModel): number {
+    return item.id;
   }
 }

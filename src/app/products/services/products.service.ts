@@ -4,6 +4,7 @@ import { Category, CoverType, Type, ProductModel } from '../../shared/models/sha
 
 const PRODUCTS: ProductModel[] = [
   {
+    id: 1,
     name: 'The Lord of the Rings',
     description:
       'One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them.',
@@ -14,6 +15,7 @@ const PRODUCTS: ProductModel[] = [
     coverTypes: [CoverType.Hardcover, CoverType.Softcover],
   },
   {
+    id: 2,
     name: 'The Adventures of Sherlock Holmes',
     description:
       'It shadows the experiences of detective Sherlock Holmes, an enigmatic genius, as he tries to unravel the mystery of each investigation he partakes in.',
@@ -24,6 +26,7 @@ const PRODUCTS: ProductModel[] = [
     coverTypes: [CoverType.Hardcover],
   },
   {
+    id: 3,
     name: 'Around the World in 80 Days',
     description:
       'If you had a spare 80 days, what would you do with it? Phileas Fogg and his valet Passepartout decided to use the time to circumnavigate the world.',
