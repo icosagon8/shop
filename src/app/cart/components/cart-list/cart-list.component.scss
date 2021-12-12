@@ -1,7 +1,13 @@
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-:host {
+.card {
   width: 300px;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .types {
@@ -28,4 +34,8 @@
 
 .price {
   font-weight: bold;
+}
+
+.actions {
+  margin-top: auto;
 }

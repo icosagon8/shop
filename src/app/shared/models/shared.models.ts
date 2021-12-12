@@ -14,3 +14,13 @@ export enum CoverType {
   Softcover = 'Softcover',
   Hardcover = 'Hardcover',
 }
+
+export interface ProductModel {
+  name: string;
+  description: string;
+  price: number;
+  category: Category;
+  isAvailable: boolean;
+  types: Type[];
+  coverTypes: CoverType[];
+}

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { ProductModel } from '../models/product.model';
-import { Category, CoverType, Type } from '../../shared/models/shared.models';
+import { Category, CoverType, Type, ProductModel } from '../../shared/models/shared.models';
 
 const PRODUCTS: ProductModel[] = [
   {
