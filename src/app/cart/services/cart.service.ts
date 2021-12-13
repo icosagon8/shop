@@ -7,11 +7,11 @@ import { ProductModel } from '../../shared/models/shared.models';
 export class CartService {
   products: ProductModel[] = [];
 
-  addToCard(product: ProductModel) {
+  addToCard(product: ProductModel): void {
     this.products.push(product);
   }
 
-  getProducts() {
+  getProducts(): ProductModel[] {
     return this.products;
   }
 }

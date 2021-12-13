@@ -11,9 +11,10 @@ import { CartService } from 'src/app/cart/services/cart.service';
 export class ProductComponent {
   @Input() product: ProductModel;
 
+  // не стоит внедрять тут зависимость
   constructor(private cartService: CartService) {}
 
-  onAddToCart() {
+  onAddToCart(): void {
     this.cartService.addToCard(this.product);
     console.log('Product is purchased');
   }
