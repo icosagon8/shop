@@ -15,7 +15,7 @@ export class CartListComponent {
     this.products = cartService.getProducts();
   }
 
-  get cartSize() {
+  get cartSize(): number {
     return this.products.length;
   }
 
