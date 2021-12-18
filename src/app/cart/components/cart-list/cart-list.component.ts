@@ -1,21 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ProductModel } from '../../../shared/models/shared.models';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.scss'],
 })
-export class CartListComponent {
+export class CartListComponent implements OnInit {
   products: ProductModel[] = [];
 
-  constructor(private cartService: CartService) {
-    this.products = cartService.getProducts();
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {
+    this.products = this.cartService.getProducts();
   }
 
-  get cartSize() {
+  get cartSize(): number {
     return this.products.length;
   }
 
