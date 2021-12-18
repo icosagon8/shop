@@ -14,4 +14,12 @@ export class CartService {
   getProducts(): ProductModel[] {
     return this.products;
   }
+
+  getCartSize(): number {
+    return this.products.length;
+  }
+
+  getProductsCost(): number {
+    return this.products.reduce((cost, product) => cost + product.price, 0);
+  }
 }
