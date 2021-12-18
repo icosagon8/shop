@@ -14,7 +14,7 @@
       <li *ngFor="let coverType of product.coverTypes">{{ coverType }}</li>
     </ul>
   </mat-card-content>
-  <mat-card-actions class="actions">
+  <mat-card-actions *ngIf="product.isAvailable" class="actions">
     <button mat-raised-button color="primary" (click)="onAddToCart()">Buy</button>
   </mat-card-actions>
 </mat-card>
