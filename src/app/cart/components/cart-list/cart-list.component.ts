@@ -18,7 +18,11 @@ export class CartListComponent implements OnInit {
   }
 
   get cartSize(): number {
-    return this.products.length;
+    return this.cartService.getCartSize();
+  }
+
+  get productsCost(): number {
+    return this.cartService.getProductsCost();
   }
 
   trackByItems(index: number, item: ProductModel): number {

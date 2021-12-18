@@ -3,44 +3,28 @@
   padding: 10px 0;
 }
 
-.product-container {
+.cart-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .card {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-}
-
-.types {
-  color: #e67a00;
-}
-
-.types,
-.cover-types {
-  padding-left: 0;
-  gap: 10px;
-  display: flex;
-  list-style-type: none;
-}
-
-.cover-types {
-  color: #007185;
-}
-
-.price-wrapper {
-  margin-bottom: 10px;
+  width: 610px;
   display: flex;
   justify-content: space-between;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.sidebar {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
 }
 
 .price {
   font-weight: bold;
-}
-
-.actions {
-  margin-top: auto;
 }

@@ -1,21 +1,17 @@
 <h2>CartListComponent</h2>
-<div *ngIf="cartSize; else emptyCartBlock" class="product-container">
-  <mat-card *ngFor="let product of products; trackBy: trackByItems" class="card">
-    <mat-card-title>{{ product.name }}</mat-card-title>
-    <mat-card-content>
-      <p>{{ product.category }}</p>
-      <ul class="types">
-        <li *ngFor="let type of product.types">{{ type }}</li>
-      </ul>
-      <div class="price-wrapper">
-        <span class="price">{{ product.price }}$</span>
-        <span>Is available: {{ product.isAvailable }}</span>
-      </div>
-      <p>{{ product.description }}</p>
-      <ul class="cover-types">
-        <li *ngFor="let coverType of product.coverTypes">{{ coverType }}</li>
-      </ul>
-    </mat-card-content>
+<div *ngIf="cartSize; else emptyCartBlock" class="cart-container">
+  <div>
+    <mat-card *ngFor="let product of products; trackBy: trackByItems" class="card">
+      <span>{{ product.name }}</span>
+      <span class="price">{{ product.price }}$</span>
+    </mat-card>
+  </div>
+  <mat-card class="sidebar">
+    <span>
+      {{ cartSize }}
+      item<ng-container *ngIf="cartSize > 1">s</ng-container>
+    </span>
+    <span class="price">{{ productsCost }}$</span>
   </mat-card>
 </div>
 <ng-template #emptyCartBlock>Cart is empty.</ng-template>
