@@ -38,7 +38,13 @@
             "style": "kebab-case"
           }
         ],
-        "@typescript-eslint/lines-between-class-members": "off"
+        "@typescript-eslint/lines-between-class-members": "off",
+        "prettier/prettier": [
+          "error",
+          {
+            "endOfLine": "auto"
+          }
+        ]
       }
     },
     {
