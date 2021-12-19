@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 
-import { ProductModel } from '../../../shared/models/shared.models';
+import { CartProductModel } from '../../../shared/models/shared.models';
 import { CartService } from '../../../core/services/cart.service';
 
 @Component({
@@ -8,13 +8,29 @@ import { CartService } from '../../../core/services/cart.service';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.scss'],
 })
-export class CartListComponent implements OnInit {
-  products: ProductModel[] = [];
+export class CartListComponent implements DoCheck {
+  products: CartProductModel[] = [];
 
   constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {
+  ngDoCheck(): void {
     this.products = this.cartService.getProducts();
+  }
+
+  trackByItems(index: number, item: CartProductModel): number {
+    return item.id;
+  }
+
+  onIncreaseQuantity(id: CartProductModel['id']): void {
+    this.cartService.increaseQuantity(id);
+  }
+
+  onDecreaseQuantity(id: CartProductModel['id']): void {
+    this.cartService.decreaseQuantity(id);
+  }
+
+  onRemoveProduct(id: CartProductModel['id']): void {
+    this.cartService.removeProduct(id);
   }
 
   get cartSize(): number {
@@ -23,9 +39,5 @@ export class CartListComponent implements OnInit {
 
   get productsCost(): number {
     return this.cartService.getProductsCost();
-  }
-
-  trackByItems(index: number, item: ProductModel): number {
-    return item.id;
   }
 }

@@ -1,10 +1,13 @@
 <h2>CartListComponent</h2>
 <div *ngIf="cartSize; else emptyCartBlock" class="cart-container">
   <div>
-    <mat-card *ngFor="let product of products; trackBy: trackByItems" class="card">
-      <span>{{ product.name }}</span>
-      <span class="price">{{ product.price }}$</span>
-    </mat-card>
+    <app-cart-item
+      *ngFor="let product of products; trackBy: trackByItems"
+      [product]="product"
+      (increaseQuantity)="onIncreaseQuantity($event)"
+      (decreaseQuantity)="onDecreaseQuantity($event)"
+      (removeProduct)="onRemoveProduct($event)"
+    ></app-cart-item>
   </div>
   <mat-card class="sidebar">
     <span>

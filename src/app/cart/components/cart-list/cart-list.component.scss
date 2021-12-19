@@ -9,16 +9,6 @@
   align-items: flex-start;
 }
 
-.card {
-  width: 610px;
-  display: flex;
-  justify-content: space-between;
-
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-
 .sidebar {
   display: flex;
   justify-content: space-between;
