@@ -25,3 +25,10 @@ export interface ProductModel {
   types: Type[];
   coverTypes: CoverType[];
 }
+
+export interface CartProductModel {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+}

@@ -1,0 +1,16 @@
+<mat-card class="card">
+  <span class="name">{{ product.name }}</span>
+  <div class="count-wrapper">
+    <button mat-icon-button [disabled]="isDisabled" (click)="onDecreaseQuantity()">
+      <mat-icon>remove_circle_outline</mat-icon>
+    </button>
+    <span class="quantity">{{ product.quantity }}</span>
+    <button mat-icon-button (click)="onIncreaseQuantity()">
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
+  </div>
+  <button mat-icon-button (click)="onRemoveProduct()">
+    <mat-icon>delete</mat-icon>
+  </button>
+  <span class="price">{{ price }}$</span>
+</mat-card>

@@ -1,0 +1,29 @@
+:host {
+  display: block;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.card {
+  width: 610px;
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  margin-right: auto;
+}
+
+.quantity {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+
+.price {
+  width: 50px;
+  text-align-last: right;
+  font-weight: bold;
+}
