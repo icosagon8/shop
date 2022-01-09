@@ -4,6 +4,12 @@
   &:not(:last-child) {
     margin-bottom: 10px;
   }
+
+  &.highlight {
+    .card {
+      background-color: #f7cb9a;
+    }
+  }
 }
 
 .card {
