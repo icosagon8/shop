@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { Category, CoverType, Type } from '../../../shared/models/shared.models';
 
@@ -6,6 +6,7 @@ import { Category, CoverType, Type } from '../../../shared/models/shared.models'
   selector: 'app-first',
   templateUrl: './first.component.html',
   styleUrls: ['./first.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FirstComponent {
   name: string = 'The Lord of the Rings';
