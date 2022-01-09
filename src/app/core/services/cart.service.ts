@@ -28,11 +28,11 @@ export class CartService {
   }
 
   getCartSize(): number {
-    return this.products.length;
+    return this.products.reduce((cartSize, product) => product.quantity + cartSize, 0);
   }
 
   getProductsCost(): number {
-    return this.products.reduce((cost, product) => cost + product.price, 0);
+    return this.products.reduce((cost, product) => cost + product.quantity * product.price, 0);
   }
 
   increaseQuantity(id: CartProductModel['id']): void {
