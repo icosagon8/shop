@@ -44,11 +44,13 @@ export class CartService {
   }
 
   removeProduct(id: CartProductModel['id']): void {
+    // тут происходит пересоздание массива
     this.products = this.products.filter((product) => product.id !== id);
   }
 
   private changeQuantity(id: CartProductModel['id'], quantity: number): void {
     const cartProduct = this.products.find((product) => product.id === id)!;
+    // а тут происходит мутация
     cartProduct.quantity += quantity;
   }
 }
