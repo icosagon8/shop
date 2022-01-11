@@ -30,6 +30,7 @@ export class CartItemComponent {
     return this.product.quantity === 1;
   }
 
+  // это уже не прайс, это уже тотал
   get price(): number {
     return this.product.price * this.product.quantity;
   }
