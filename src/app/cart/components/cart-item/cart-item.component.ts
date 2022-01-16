@@ -30,7 +30,7 @@ export class CartItemComponent {
     return this.product.quantity === 1;
   }
 
-  get price(): number {
+  get totalSum(): number {
     return this.product.price * this.product.quantity;
   }
 }

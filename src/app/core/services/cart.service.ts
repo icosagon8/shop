@@ -14,12 +14,15 @@ export class CartService {
     if (shoppingCartProduct) {
       this.increaseQuantity(shoppingCartProduct.id);
     } else {
-      this.products.push({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        quantity: 1,
-      });
+      this.products = [
+        ...this.products,
+        {
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          quantity: 1,
+        },
+      ];
     }
   }
 
@@ -48,7 +51,15 @@ export class CartService {
   }
 
   private changeQuantity(id: CartProductModel['id'], quantity: number): void {
-    const cartProduct = this.products.find((product) => product.id === id)!;
-    cartProduct.quantity += quantity;
+    this.products = this.products.map((product) => {
+      if (product.id === id) {
+        return {
+          ...product,
+          quantity: product.quantity + quantity,
+        };
+      }
+
+      return product;
+    });
   }
 }
