@@ -6,16 +6,22 @@ import { CartProductModel, ProductModel } from '../../shared/models/shared.model
   providedIn: 'root',
 })
 export class CartService {
-  products: CartProductModel[] = [];
+  cartProducts: CartProductModel[] = [];
+  totalQuantity: number;
+  totalSum: number;
 
-  addToCard(product: ProductModel): void {
-    const shoppingCartProduct = this.products.find((cartProduct) => cartProduct.id === product.id);
+  getProducts(): CartProductModel[] {
+    return this.cartProducts;
+  }
+
+  addProduct(product: ProductModel): void {
+    const shoppingCartProduct = this.cartProducts.find((cartProduct) => cartProduct.id === product.id);
 
     if (shoppingCartProduct) {
       this.increaseQuantity(shoppingCartProduct.id);
     } else {
-      this.products = [
-        ...this.products,
+      this.cartProducts = [
+        ...this.cartProducts,
         {
           id: product.id,
           name: product.name,
@@ -23,19 +29,13 @@ export class CartService {
           quantity: 1,
         },
       ];
+      this.updateCartData();
     }
   }
 
-  getProducts(): CartProductModel[] {
-    return this.products;
-  }
-
-  getCartSize(): number {
-    return this.products.reduce((cartSize, product) => product.quantity + cartSize, 0);
-  }
-
-  getProductsCost(): number {
-    return this.products.reduce((cost, product) => cost + product.quantity * product.price, 0);
+  removeProduct(id: CartProductModel['id']): void {
+    this.cartProducts = this.cartProducts.filter((product) => product.id !== id);
+    this.updateCartData();
   }
 
   increaseQuantity(id: CartProductModel['id']): void {
@@ -46,12 +46,21 @@ export class CartService {
     this.changeQuantity(id, -1);
   }
 
-  removeProduct(id: CartProductModel['id']): void {
-    this.products = this.products.filter((product) => product.id !== id);
+  removeAllProducts(): void {
+    this.cartProducts = [];
+    this.updateCartData();
+  }
+
+  private changeTotalQuantity(): void {
+    this.totalQuantity = this.cartProducts.reduce((cartSize, product) => product.quantity + cartSize, 0);
+  }
+
+  private changeTotalSum(): void {
+    this.totalSum = this.cartProducts.reduce((cost, product) => cost + product.quantity * product.price, 0);
   }
 
   private changeQuantity(id: CartProductModel['id'], quantity: number): void {
-    this.products = this.products.map((product) => {
+    this.cartProducts = this.cartProducts.map((product) => {
       if (product.id === id) {
         return {
           ...product,
@@ -61,5 +70,12 @@ export class CartService {
 
       return product;
     });
+
+    this.updateCartData();
+  }
+
+  private updateCartData(): void {
+    this.changeTotalQuantity();
+    this.changeTotalSum();
   }
 }

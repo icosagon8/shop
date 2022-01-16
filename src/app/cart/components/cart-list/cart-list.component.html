@@ -1,5 +1,5 @@
 <h2>CartListComponent</h2>
-<div *ngIf="cartSize; else emptyCartBlock" class="cart-container">
+<div *ngIf="totalQuantity; else emptyCartBlock" class="cart-container">
   <div>
     <app-cart-item
       *ngFor="let product of products; trackBy: trackByItems"
@@ -9,13 +9,17 @@
       (removeProduct)="onRemoveProduct($event)"
       appHighlight
     ></app-cart-item>
+    <button mat-raised-button color="warn" (click)="onRemoveAllProducts()">
+      <mat-icon>delete</mat-icon>
+      Remove all products
+    </button>
   </div>
   <mat-card class="sidebar">
     <span>
-      {{ cartSize }}
-      item<ng-container *ngIf="cartSize > 1">s</ng-container>
+      {{ totalQuantity }}
+      item<ng-container *ngIf="totalQuantity > 1">s</ng-container>
     </span>
-    <span class="price">{{ productsCost }}$</span>
+    <span class="price">{{ totalSum }}$</span>
   </mat-card>
 </div>
 <ng-template #emptyCartBlock>Cart is empty.</ng-template>

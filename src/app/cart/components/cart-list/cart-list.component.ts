@@ -33,11 +33,15 @@ export class CartListComponent implements DoCheck {
     this.cartService.removeProduct(id);
   }
 
-  get cartSize(): number {
-    return this.cartService.getCartSize();
+  onRemoveAllProducts(): void {
+    this.cartService.removeAllProducts();
   }
 
-  get productsCost(): number {
-    return this.cartService.getProductsCost();
+  get totalQuantity(): number {
+    return this.cartService.totalQuantity;
+  }
+
+  get totalSum(): number {
+    return this.cartService.totalSum;
   }
 }
