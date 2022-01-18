@@ -16,3 +16,11 @@
 - Product Component
 - Cart Service
 - Cart List Component
+
+## Task 3. Services and DI - 2022-01-18
+### Added
+- Config Options Service
+- Constants Service
+- Generator Service
+- Local Storage Service
+- Outline Directive
