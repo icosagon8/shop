@@ -1,4 +1,5 @@
 import { Injectable, InjectionToken } from '@angular/core';
+import { genID } from './gen-id.generator';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,10 @@ export class GeneratorService {
     }
 
     return result;
+  }
+
+  getNewID(): () => number {
+    return genID();
   }
 }
 
