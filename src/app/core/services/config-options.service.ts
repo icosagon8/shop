@@ -6,7 +6,7 @@ import { ConfigModel } from '../models/config.model';
   providedIn: 'root',
 })
 export class ConfigOptionsService {
-  config: ConfigModel = { id: 1, login: 'admin', email: 'admin@site.com' };
+  private config: ConfigModel = { id: 1, login: 'admin', email: 'admin@site.com' };
 
   getConfig() {
     return this.config;
