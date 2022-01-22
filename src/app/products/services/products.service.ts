@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Category, CoverType, Type, ProductModel } from '../../shared/models/shared.models';
+import { Category, CoverType, ProductModel, Type } from '../../shared/models/shared.models';
 
 const PRODUCTS: ProductModel[] = [
   {
@@ -42,7 +42,7 @@ const PRODUCTS: ProductModel[] = [
   providedIn: 'root',
 })
 export class ProductsService {
-  getProducts(): ProductModel[] {
-    return PRODUCTS;
+  getProducts(): Promise<ProductModel[]> {
+    return Promise.resolve(PRODUCTS);
   }
 }
