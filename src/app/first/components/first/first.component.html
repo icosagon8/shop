@@ -7,7 +7,7 @@
       <li *ngFor="let type of types">{{ type }}</li>
     </ul>
     <div class="price-wrapper">
-      <span class="price">{{ price }}$</span>
+      <span class="price">{{ price | currency }}</span>
       <span>Is available: {{ isAvailable }}</span>
     </div>
     <p>{{ description }}</p>

@@ -19,7 +19,7 @@
       {{ totalQuantity }}
       item<ng-container *ngIf="totalQuantity > 1">s</ng-container>
     </span>
-    <span class="price">{{ totalSum }}$</span>
+    <span class="price">{{ totalSum | currency }}</span>
   </mat-card>
 </div>
 <ng-template #emptyCartBlock>Cart is empty.</ng-template>
