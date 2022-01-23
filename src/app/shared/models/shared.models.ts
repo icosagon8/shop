@@ -29,6 +29,6 @@ export interface ProductModel {
 export interface CartProductModel {
   id: number;
   name: string;
-  price: number;
+  totalSum: number;
   quantity: number;
 }

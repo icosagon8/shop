@@ -29,8 +29,4 @@ export class CartItemComponent {
   get isDisabled(): boolean {
     return this.product.quantity === 1;
   }
-
-  get totalSum(): number {
-    return this.product.price * this.product.quantity;
-  }
 }

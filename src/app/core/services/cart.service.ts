@@ -25,7 +25,7 @@ export class CartService {
         {
           id: product.id,
           name: product.name,
-          price: product.price,
+          totalSum: product.price,
           quantity: 1,
         },
       ];
@@ -56,15 +56,18 @@ export class CartService {
   }
 
   private changeTotalSum(): void {
-    this.totalSum = this.cartProducts.reduce((cost, product) => cost + product.quantity * product.price, 0);
+    this.totalSum = this.cartProducts.reduce((cost, product) => cost + product.totalSum, 0);
   }
 
   private changeQuantity(id: CartProductModel['id'], quantity: number): void {
     this.cartProducts = this.cartProducts.map((product) => {
       if (product.id === id) {
+        const cartProductQuantity = product.quantity + quantity;
+
         return {
           ...product,
-          quantity: product.quantity + quantity,
+          totalSum: (product.totalSum / product.quantity) * cartProductQuantity,
+          quantity: cartProductQuantity,
         };
       }
 
