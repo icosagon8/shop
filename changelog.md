@@ -24,3 +24,11 @@
 - Generator Service
 - Local Storage Service
 - Outline Directive
+
+## Task 4. Pipes - 2022-01-23
+
+### Added
+- OrderByPipe to CartListComponent
+- CurrencyPipe to CartItemComponent, CartListComponent, FirstComponent, ProductComponent
+- UppercasePipe to CartItemComponent, ProductComponent
+- AsyncPipe to ProductListComponent
