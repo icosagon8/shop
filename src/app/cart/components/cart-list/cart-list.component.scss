@@ -18,3 +18,9 @@
 .price {
   font-weight: bold;
 }
+
+.sorting-header {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+}

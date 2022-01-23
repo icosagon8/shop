@@ -10,6 +10,14 @@ import { CartService } from '../../../core/services/cart.service';
 })
 export class CartListComponent implements DoCheck {
   products: CartProductModel[] = [];
+  isAsc = true;
+  selectedValues = ['name'];
+
+  sortOptions: { displayName: string; key: string }[] = [
+    { displayName: 'Name', key: 'name' },
+    { displayName: 'Price', key: 'totalSum' },
+    { displayName: 'Quantity', key: 'quantity' },
+  ];
 
   constructor(private cartService: CartService) {}
 

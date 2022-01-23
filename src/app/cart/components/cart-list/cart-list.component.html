@@ -1,8 +1,21 @@
 <h2>CartListComponent</h2>
+
+<div class="sorting-header">
+  <mat-form-field appearance="fill">
+    <mat-label>Sort By</mat-label>
+    <mat-select [(ngModel)]="selectedValues" multiple>
+      <mat-option *ngFor="let sortOption of sortOptions" [value]="sortOption.key">
+        {{ sortOption.displayName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-checkbox color="primary" [(ngModel)]="isAsc">{{ isAsc ? 'Asc' : 'Desc' }}</mat-checkbox>
+</div>
+
 <div *ngIf="totalQuantity; else emptyCartBlock" class="cart-container">
   <div>
     <app-cart-item
-      *ngFor="let product of products; trackBy: trackByItems"
+      *ngFor="let product of products | orderBy: selectedValues:isAsc; trackBy: trackByItems"
       [product]="product"
       (increaseQuantity)="onIncreaseQuantity($event)"
       (decreaseQuantity)="onDecreaseQuantity($event)"
