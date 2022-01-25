@@ -5,3 +5,5 @@ export function genID(): () => number {
     return id++;
   };
 }
+// есть такая конструкция как генератор - function* gen() {...}
+
