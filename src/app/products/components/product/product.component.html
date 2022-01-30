@@ -1,20 +1,35 @@
-<mat-card class="card">
-  <mat-card-title class="title">{{ product.name | uppercase }}</mat-card-title>
-  <mat-card-content>
-    <p>{{ product.category }}</p>
-    <ul class="types">
-      <li *ngFor="let type of product.types">{{ type }}</li>
-    </ul>
-    <div class="price-wrapper">
-      <span class="price">{{ product.price | currency }}</span>
-      <span>Is available: {{ product.isAvailable }}</span>
+<mat-card>
+  <div class="content">
+    <img [src]="product.image" [alt]="product.name" width="200" height="300" />
+    <div>
+      <mat-card-title class="title">{{ product.name | uppercase }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ product.category }}</p>
+        <ul class="types">
+          <li *ngFor="let type of product.types">{{ type }}</li>
+        </ul>
+        <div class="price-wrapper">
+          <span class="price">{{ product.price | currency }}</span>
+          <span>Is available: {{ product.isAvailable }}</span>
+        </div>
+        <p>{{ product.description }}</p>
+        <ul class="cover-types">
+          <li *ngFor="let coverType of product.coverTypes">{{ coverType }}</li>
+        </ul>
+      </mat-card-content>
     </div>
-    <p>{{ product.description }}</p>
-    <ul class="cover-types">
-      <li *ngFor="let coverType of product.coverTypes">{{ coverType }}</li>
-    </ul>
-  </mat-card-content>
-  <mat-card-actions *ngIf="product.isAvailable" class="actions">
-    <button mat-raised-button appOutline="green" color="primary" (click)="onAddToCart()">Buy</button>
-  </mat-card-actions>
+  </div>
+  <div class="actions">
+    <button
+      class="button"
+      mat-raised-button
+      appOutline="green"
+      color="primary"
+      [disabled]="!product.isAvailable"
+      (click)="onAddToCart()"
+    >
+      Buy
+    </button>
+    <a class="button" mat-raised-button [routerLink]="['/product', product.id]" routerLinkActive="active">More info</a>
+  </div>
 </mat-card>

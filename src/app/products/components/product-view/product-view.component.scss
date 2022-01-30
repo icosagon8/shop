@@ -1,0 +1,56 @@
+:host {
+  display: block;
+  padding: 10px 0;
+}
+
+.product-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.image {
+  width: 40%;
+  height: 350px;
+  background-color: cadetblue;
+}
+
+.btn-buy {
+  margin-bottom: 10px;
+  width: 250px;
+}
+
+.product-info {
+  width: 60%;
+}
+
+.price {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.price-wrapper {
+  margin-bottom: 10px;
+}
+
+.table {
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  width: 250px;
+
+  tr {
+    border-bottom: 1px solid #d0d0d0;
+
+    &:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  }
+
+  td {
+    padding: 10px 15px;
+    border: 1px solid #efefef;
+
+    &:first-child {
+      font-weight: 700;
+    }
+  }
+}

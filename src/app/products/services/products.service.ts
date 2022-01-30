@@ -13,6 +13,7 @@ const PRODUCTS: ProductModel[] = [
     isAvailable: true,
     types: [Type.Printed, Type.Audio],
     coverTypes: [CoverType.Hardcover, CoverType.Softcover],
+    image: './../../assets/images/the-lord-of-the-rings.jpg',
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const PRODUCTS: ProductModel[] = [
     isAvailable: true,
     types: [Type.Printed, Type.Electronic],
     coverTypes: [CoverType.Hardcover],
+    image: './../../assets/images/the-adventures-of-sherlock-holmes.jpg',
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ const PRODUCTS: ProductModel[] = [
     isAvailable: false,
     types: [Type.Printed],
     coverTypes: [CoverType.Softcover],
+    image: './../../assets/images/around-the world-in-80-days.jpg',
   },
 ];
 
@@ -42,7 +45,13 @@ const PRODUCTS: ProductModel[] = [
   providedIn: 'root',
 })
 export class ProductsService {
+  products: ProductModel[] = PRODUCTS;
+
   getProducts(): Promise<ProductModel[]> {
-    return Promise.resolve(PRODUCTS);
+    return Promise.resolve(this.products);
+  }
+
+  getProduct(productID: number): ProductModel {
+    return this.products.find((product) => product.id === productID)!;
   }
 }

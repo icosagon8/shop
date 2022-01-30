@@ -24,6 +24,7 @@ export interface ProductModel {
   isAvailable: boolean;
   types: Type[];
   coverTypes: CoverType[];
+  image: string;
 }
 
 export interface CartProductModel {

@@ -1,0 +1,36 @@
+<h1>{{ product.name }}</h1>
+<div class="product-wrapper">
+  <img [src]="product.image" width="294" height="430" />
+  <div class="product-info">
+    <div class="price-wrapper">
+      <span class="price">{{ product.price | currency }}</span>
+      <span>Is available: {{ product.isAvailable }}</span>
+    </div>
+    <button
+      class="btn-buy"
+      mat-raised-button
+      appOutline="green"
+      color="primary"
+      [disabled]="!product.isAvailable"
+      (click)="onAddToCart()"
+    >
+      Buy
+    </button>
+    <table class="table">
+      <tr>
+        <td>Category</td>
+        <td>{{ product.category }}</td>
+      </tr>
+      <tr>
+        <td>Cover types</td>
+        <td>{{ product.coverTypes.join(', ') }}</td>
+      </tr>
+      <tr>
+        <td>Genres</td>
+        <td>{{ product.types.join(', ') }}</td>
+      </tr>
+    </table>
+    <h2>Description</h2>
+    <p>{{ product.description }}</p>
+  </div>
+</div>

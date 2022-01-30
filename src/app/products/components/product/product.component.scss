@@ -1,11 +1,12 @@
 :host {
-  width: 300px;
+  width: 455px;
   display: flex;
 }
 
-.card {
+.content {
   display: flex;
-  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .title {
@@ -39,5 +40,11 @@
 }
 
 .actions {
-  margin-top: auto;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 200px;
 }
