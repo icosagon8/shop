@@ -16,7 +16,7 @@ export class GeneratorService {
     return result;
   }
 
-  getNewID(): () => number {
+  getNewID() {
     return genID();
   }
 }

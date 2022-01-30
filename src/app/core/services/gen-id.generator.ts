@@ -1,7 +1,7 @@
-export function genID(): () => number {
+export function* genID() {
   let id = 1;
 
-  return function () {
-    return id++;
-  };
+  while (true) {
+    yield id++;
+  }
 }
