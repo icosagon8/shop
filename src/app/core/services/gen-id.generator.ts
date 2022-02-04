@@ -5,3 +5,5 @@ export function* genID() {
     yield id++;
   }
 }
+// есть такая конструкция как генератор - function* gen() {...}
+
