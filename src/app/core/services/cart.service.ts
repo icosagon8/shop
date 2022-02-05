@@ -7,8 +7,8 @@ import { CartProductModel, ProductModel } from '../../shared/models/shared.model
 })
 export class CartService {
   cartProducts: CartProductModel[] = [];
-  totalQuantity: number;
-  totalSum: number;
+  totalQuantity: number = 0;
+  totalSum: number = 0;
 
   getProducts(): CartProductModel[] {
     return this.cartProducts;
@@ -49,6 +49,10 @@ export class CartService {
   removeAllProducts(): void {
     this.cartProducts = [];
     this.updateCartData();
+  }
+
+  isEmptyCart(): boolean {
+    return this.cartProducts.length === 0;
   }
 
   private changeTotalQuantity(): void {

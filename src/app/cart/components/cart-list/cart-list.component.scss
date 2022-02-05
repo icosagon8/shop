@@ -12,7 +12,9 @@
 .sidebar {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 300px;
+  gap: 10px;
 }
 
 .price {
@@ -23,4 +25,8 @@
   display: flex;
   align-items: baseline;
   gap: 15px;
+}
+
+.order-link {
+  width: 100%;
 }
