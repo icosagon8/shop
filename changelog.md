@@ -32,3 +32,11 @@
 - CurrencyPipe to CartItemComponent, CartListComponent, FirstComponent, ProductComponent
 - UppercasePipe to CartItemComponent, ProductComponent
 - AsyncPipe to ProductListComponent
+
+## Task 5. Routing - 2022-02-06
+
+### Added
+- Product View Component
+- Order page
+- Routing for Home, Cart, Admin, Product and Order pages
+- Storage of cart items in localStorage
