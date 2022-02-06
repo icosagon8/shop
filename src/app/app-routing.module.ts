@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { IsCartEmptyGuard } from './orders/guards';
+import { PathForbiddenComponent } from './layout/components';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
     path: 'order',
     canLoad: [IsCartEmptyGuard],
     loadChildren: () => import('./orders/orders.module').then((m) => m.OrdersModule),
+  },
+  {
+    path: 'forbidden',
+    component: PathForbiddenComponent,
   },
 ];
 
