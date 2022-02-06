@@ -1,6 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 
-import { CartProductModel } from '../../../shared/models/shared.models';
+import { CartData, CartProductModel } from '../../../shared/models/shared.models';
 import { CartService } from '../../../core/services/cart.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { CartService } from '../../../core/services/cart.service';
 })
 export class CartListComponent implements DoCheck {
   products: CartProductModel[] = [];
+  cartData!: CartData;
   isAsc = true;
   selectedValues = ['name'];
 
@@ -23,6 +24,7 @@ export class CartListComponent implements DoCheck {
 
   ngDoCheck(): void {
     this.products = this.cartService.getProducts();
+    this.cartData = this.cartService.getCartData();
   }
 
   trackByItems(index: number, item: CartProductModel): number {
@@ -46,10 +48,10 @@ export class CartListComponent implements DoCheck {
   }
 
   get totalQuantity(): number {
-    return this.cartService.totalQuantity;
+    return this.cartData.totalQuantity;
   }
 
   get totalSum(): number {
-    return this.cartService.totalSum;
+    return this.cartData.totalSum;
   }
 }

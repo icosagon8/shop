@@ -1,17 +1,35 @@
 import { Injectable } from '@angular/core';
 
-import { CartProductModel, ProductModel } from '../../shared/models/shared.models';
+import { CartData, CartProductModel, ProductModel } from '../../shared/models/shared.models';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   cartProducts: CartProductModel[] = [];
-  totalQuantity: number = 0;
-  totalSum: number = 0;
+  cartData: CartData = { totalQuantity: 0, totalSum: 0 };
+
+  constructor(private localStorage: LocalStorageService) {}
 
   getProducts(): CartProductModel[] {
+    const cartProducts = this.localStorage.getItem('cart');
+
+    if (cartProducts) {
+      this.cartProducts = JSON.parse(cartProducts);
+    }
+
     return this.cartProducts;
+  }
+
+  getCartData(): CartData {
+    const cartData = this.localStorage.getItem('cartData');
+
+    if (cartData) {
+      this.cartData = JSON.parse(cartData);
+    }
+
+    return this.cartData;
   }
 
   addProduct(product: ProductModel): void {
@@ -56,11 +74,13 @@ export class CartService {
   }
 
   private changeTotalQuantity(): void {
-    this.totalQuantity = this.cartProducts.reduce((cartSize, product) => product.quantity + cartSize, 0);
+    const totalQuantity = this.cartProducts.reduce((cartSize, product) => product.quantity + cartSize, 0);
+    this.cartData = { ...this.cartData, totalQuantity };
   }
 
   private changeTotalSum(): void {
-    this.totalSum = this.cartProducts.reduce((cost, product) => cost + product.totalSum, 0);
+    const totalSum = this.cartProducts.reduce((cost, product) => cost + product.totalSum, 0);
+    this.cartData = { ...this.cartData, totalSum };
   }
 
   private changeQuantity(id: CartProductModel['id'], quantity: number): void {
@@ -84,5 +104,7 @@ export class CartService {
   private updateCartData(): void {
     this.changeTotalQuantity();
     this.changeTotalSum();
+    this.localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    this.localStorage.setItem('cartData', JSON.stringify(this.cartData));
   }
 }

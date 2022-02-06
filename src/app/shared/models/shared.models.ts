@@ -33,3 +33,8 @@ export interface CartProductModel {
   totalSum: number;
   quantity: number;
 }
+
+export interface CartData {
+  totalQuantity: number;
+  totalSum: number;
+}

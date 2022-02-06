@@ -7,7 +7,7 @@
     <mat-icon>admin_panel_settings</mat-icon>
   </a>
   <a mat-icon-button [routerLink]="['/cart']">
-    <mat-icon [matBadge]="this.cartService.totalQuantity" matBadgeColor="warn">shopping_cart</mat-icon>
+    <mat-icon [matBadge]="this.cartService.getCartData().totalQuantity" matBadgeColor="warn">shopping_cart</mat-icon>
   </a>
 </mat-toolbar>
 
