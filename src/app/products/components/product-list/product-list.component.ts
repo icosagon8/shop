@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { CartService } from '../../../core/services/cart.service';
 import { ProductModel } from '../../../shared/models/shared.models';
-import { ProductsService } from '../../services/products.service';
+import { ProductsPromiseService } from '../../services/products-promise.service';
 
 @Component({
   templateUrl: './product-list.component.html',
@@ -12,10 +12,10 @@ import { ProductsService } from '../../services/products.service';
 export class ProductListComponent implements OnInit {
   products: Promise<ProductModel[]>;
 
-  constructor(private productsService: ProductsService, private cartService: CartService) {}
+  constructor(private cartService: CartService, private productsPromiseService: ProductsPromiseService) {}
 
   ngOnInit(): void {
-    this.products = this.productsService.getProducts();
+    this.products = this.productsPromiseService.getProducts();
   }
 
   onAddProductToCart(product: ProductModel): void {

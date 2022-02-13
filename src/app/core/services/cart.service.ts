@@ -10,7 +10,9 @@ export class CartService {
   cartProducts: CartProductModel[] = [];
   cartData: CartData = { totalQuantity: 0, totalSum: 0 };
 
-  constructor(private localStorage: LocalStorageService) {}
+  constructor(private localStorage: LocalStorageService) {
+    this.getProducts();
+  }
 
   getProducts(): CartProductModel[] {
     const cartProducts = this.localStorage.getItem('cart');

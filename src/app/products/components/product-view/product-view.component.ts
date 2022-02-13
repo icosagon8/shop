@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ProductModel } from '../../../shared/models/shared.models';
-import { ProductsService } from '../../services/products.service';
 import { CartService } from '../../../core/services/cart.service';
 
 @Component({
@@ -13,15 +12,12 @@ import { CartService } from '../../../core/services/cart.service';
 export class ProductViewComponent implements OnInit {
   product: ProductModel;
 
-  constructor(
-    private route: ActivatedRoute,
-    private productService: ProductsService,
-    private cartService: CartService,
-  ) {}
+  constructor(private route: ActivatedRoute, private cartService: CartService) {}
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('productID')!;
-    this.product = this.productService.getProduct(id);
+    this.route.data.subscribe((response: any) => {
+      this.product = response.product;
+    });
   }
 
   onAddToCart(): void {
