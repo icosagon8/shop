@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "The Lord of the Rings",
+      "description": "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them.",
+      "price": 20,
+      "category": "Fantasy",
+      "isAvailable": true,
+      "types": ["Printed","Audio"],
+      "coverTypes": ["Hardcover", "Softcover"],
+      "image": "./../../assets/images/the-lord-of-the-rings.jpg"
+    },
+    {
+      "id": 2,
+      "name": "The Adventures of Sherlock Holmes",
+      "description": "It shadows the experiences of detective Sherlock Holmes, an enigmatic genius, as he tries to unravel the mystery of each investigation he partakes in.",
+      "price": 15,
+      "category": "Detective",
+      "isAvailable": true,
+      "types": ["Printed", "Electronic"],
+      "coverTypes": ["Hardcover"],
+      "image": "./../../assets/images/the-adventures-of-sherlock-holmes.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Around the World in 80 Days",
+      "description": "If you had a spare 80 days, what would you do with it? Phileas Fogg and his valet Passepartout decided to use the time to circumnavigate the world.",
+      "price": 10,
+      "category": "Adventure",
+      "isAvailable": false,
+      "types": ["Printed"],
+      "coverTypes": ["Softcover"],
+      "image": "./../../assets/images/around-the world-in-80-days.jpg"
+    }
+  ]
+}
+
+
