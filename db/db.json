@@ -7,8 +7,14 @@
       "price": 20,
       "category": "Fantasy",
       "isAvailable": true,
-      "types": ["Printed","Audio"],
-      "coverTypes": ["Hardcover", "Softcover"],
+      "types": [
+        "Printed",
+        "Audio"
+      ],
+      "coverTypes": [
+        "Hardcover",
+        "Softcover"
+      ],
       "image": "./../../assets/images/the-lord-of-the-rings.jpg"
     },
     {
@@ -18,8 +24,13 @@
       "price": 15,
       "category": "Detective",
       "isAvailable": true,
-      "types": ["Printed", "Electronic"],
-      "coverTypes": ["Hardcover"],
+      "types": [
+        "Printed",
+        "Electronic"
+      ],
+      "coverTypes": [
+        "Hardcover"
+      ],
       "image": "./../../assets/images/the-adventures-of-sherlock-holmes.jpg"
     },
     {
@@ -29,11 +40,14 @@
       "price": 10,
       "category": "Adventure",
       "isAvailable": false,
-      "types": ["Printed"],
-      "coverTypes": ["Softcover"],
+      "types": [
+        "Printed"
+      ],
+      "coverTypes": [
+        "Softcover"
+      ],
       "image": "./../../assets/images/around-the world-in-80-days.jpg"
     }
-  ]
+  ],
+  "cart": []
 }
-
-
