@@ -40,3 +40,11 @@
 - Order page
 - Routing for Home, Cart, Admin, Product and Order pages
 - Storage of cart items in localStorage
+
+## Task 6. HttpClient - 2022-02-19
+
+### Added
+- Backend (json-server)
+- ProductsPromiseService and CartObservableService
+- TimingInterceptor
+- AppSettingsService
