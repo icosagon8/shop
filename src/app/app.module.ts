@@ -12,6 +12,7 @@ import { CartModule } from './cart/cart.module';
 import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 import { LayoutModule } from './layout/layout.module';
+import { httpInterceptorProviders } from './core/interceptors';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +28,7 @@ import { LayoutModule } from './layout/layout.module';
     AdminModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {
