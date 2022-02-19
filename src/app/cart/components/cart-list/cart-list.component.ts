@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartData, CartProductModel } from '../../../shared/models/shared.models';
 import { CartService } from '../../../core/services/cart.service';
 import { CartObservableService } from '../../services/cart-observable.service';
+import { AppSettingsService } from 'src/app/core/services/app-settings.service';
 
 @Component({
   selector: 'app-cart-list',
@@ -12,7 +13,7 @@ import { CartObservableService } from '../../services/cart-observable.service';
 export class CartListComponent implements OnInit {
   products: CartProductModel[] = [];
   cartData!: CartData;
-  isAsc = true;
+  isAsc!: boolean;
   selectedValues = ['name'];
 
   sortOptions: { displayName: string; key: string }[] = [
@@ -21,7 +22,11 @@ export class CartListComponent implements OnInit {
     { displayName: 'Quantity', key: 'quantity' },
   ];
 
-  constructor(private cartService: CartService, private cartObservableService: CartObservableService) {}
+  constructor(
+    private cartService: CartService,
+    private cartObservableService: CartObservableService,
+    private appSettingsService: AppSettingsService,
+  ) {}
 
   ngOnInit(): void {
     this.cartObservableService.getCartProducts().subscribe((cartProducts) => {
@@ -29,6 +34,9 @@ export class CartListComponent implements OnInit {
       this.updateCartData();
     });
     this.cartData = this.cartService.getCartData();
+    this.appSettingsService.getAppSettings().subscribe((appSettings) => {
+      this.isAsc = appSettings.isAsc;
+    });
   }
 
   trackByItems(index: number, item: CartProductModel): number {
